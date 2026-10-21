@@ -3,14 +3,23 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Project extends Model
 {
-    protected $fillable = ['name', 'description', 'tags', 'sort_order'];
+    use LogsActivity;
+
+    protected $fillable = ['name', 'description', 'tags', 'sort_order', 'cover_image'];
 
     protected $casts = [
         'tags' => 'array',
     ];
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()->logOnly(['name', 'description', 'tags', 'sort_order', 'cover_image']);
+    }
 
     /**
      * 防御性：万一数据库存的不是纯 JSON，返回空数组防止 foreach 报错

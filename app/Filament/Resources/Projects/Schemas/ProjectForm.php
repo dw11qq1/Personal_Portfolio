@@ -2,8 +2,10 @@
 
 namespace App\Filament\Resources\Projects\Schemas;
 
-use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
 class ProjectForm
@@ -12,13 +14,20 @@ class ProjectForm
     {
         return $schema
             ->components([
+                FileUpload::make('cover_image')
+                    ->image()
+                    ->imageEditor()
+                    ->directory('covers')
+                    ->maxSize(2048)
+                    ->helperText('项目封面图，前台精选卡片展示（建议 16:9，小于 2MB）'),
                 TextInput::make('name')
                     ->required(),
                 Textarea::make('description')
                     ->required()
                     ->columnSpanFull(),
-                TextInput::make('tags')
-                    ->required(),
+                TagsInput::make('tags')
+                    ->helperText('输入技术栈后回车添加，如：Laravel、MySQL')
+                    ->columnSpanFull(),
                 TextInput::make('sort_order')
                     ->required()
                     ->numeric()

@@ -148,6 +148,7 @@ body{
 .skill-tag b{color:var(--accent);font-family:var(--font-mono);font-weight:600}
 
 /* Projects */
+.proj-cover{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0.75rem;border:1px solid var(--line);margin-bottom:var(--space-md)}
 .proj-name{font-family:var(--font-display);font-size:1.35rem;font-weight:700;color:var(--ink);letter-spacing:-0.01em}
 .cell-feature .proj-name{font-size:2rem}
 .proj-desc{color:var(--ink-2);margin-top:var(--space-sm);font-size:0.92rem;flex-grow:1}
@@ -268,6 +269,9 @@ body{
   @if($feature)
   <article class="cell cell-feature span-2x2" style="--i:2">
     <div class="cell-kicker"><h2 class="cell-title">精选作品</h2></div>
+    @if($feature->cover_image)
+      <img class="proj-cover" src="{{ asset('storage/'.$feature->cover_image) }}" alt="{{ $feature->name }}">
+    @endif
     <div class="proj-name">{{ $feature->name }}</div>
     <p class="proj-desc">{{ $feature->description }}</p>
     <div class="proj-tags">
