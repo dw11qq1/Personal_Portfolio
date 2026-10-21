@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ $name }} — {{ $title }}</title>
-<link rel="preconnect" href="https://fonts.googleapis.cn">
-<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin>
-<link href="https://fonts.googleapis.cn/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@500;600&display=swap" rel="stylesheet">
 <style>
 /* Hallmark · macrostructure: Bento Grid · genre: editorial · anchor hue: teal (oklch) */
 
@@ -253,7 +253,7 @@ body{
         <div class="skill-group__label">{{ $cat }}</div>
         <div class="skill-tags">
           @foreach($items as $s)
-            <span class="skill-tag">{{ $s->name }} <b>{{ $s->percent }}%</b></span>
+            <span class="skill-tag">{{ $s->name }}</span>
           @endforeach
         </div>
       </div>
@@ -343,7 +343,11 @@ body{
 (function(){
   var root = document.documentElement;
   var saved = localStorage.getItem('theme');
-  if(saved) root.setAttribute('data-theme', saved);
+  if(saved){
+    root.setAttribute('data-theme', saved);
+  } else if(window.matchMedia && matchMedia('(prefers-color-scheme:dark)').matches){
+    root.setAttribute('data-theme', 'dark');
+  }
   document.getElementById('themeToggle').addEventListener('click', function(){
     var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
