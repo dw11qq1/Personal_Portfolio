@@ -27,7 +27,7 @@ class PostsTable
                     ->badge()
                     ->formatStateUsing(fn ($state) => $state ? '已发布' : '草稿')
                     ->color(fn ($state) => $state ? 'success' : 'warning')
-                    ->sort(),
+                    ->sortable(),
                 TextColumn::make('published_at')
                     ->label('发布时间')
                     ->dateTime('Y-m-d')
