@@ -212,6 +212,7 @@ body{
   <ul class="nav-pill__links">
     <li><a href="#work">作品</a></li>
     <li><a href="#exp">经历</a></li>
+    <li><a href="/blog">博客</a></li>
     <li><a href="#contact">联系</a></li>
   </ul>
   <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
