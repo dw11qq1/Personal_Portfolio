@@ -10,7 +10,7 @@ class Project extends Model
 {
     use LogsActivity;
 
-    protected $fillable = ['name', 'description', 'tags', 'sort_order', 'cover_image'];
+    protected $fillable = ['name', 'description', 'tags', 'sort_order', 'cover_image', 'live_url', 'repo_url'];
 
     protected $casts = [
         'tags' => 'array',
@@ -18,7 +18,7 @@ class Project extends Model
 
     public function getActivitylogOptions(): LogOptions
     {
-        return LogOptions::defaults()->logOnly(['name', 'description', 'tags', 'sort_order', 'cover_image']);
+        return LogOptions::defaults()->logOnly(['name', 'description', 'tags', 'sort_order', 'cover_image', 'live_url', 'repo_url']);
     }
 
     /**

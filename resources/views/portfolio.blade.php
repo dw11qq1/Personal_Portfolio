@@ -281,7 +281,9 @@ body{
         <span class="proj-tag">{{ $t }}</span>
       @endforeach
     </div>
-    <a href="#" class="proj-link">查看项目 →</a>
+    @if($feature->repo_url || $feature->live_url)
+      <a href="{{ $feature->live_url ?: $feature->repo_url }}" class="proj-link" @if(str_starts_with($feature->live_url ?: $feature->repo_url, 'http')) target="_blank" rel="noopener" @endif>查看项目 →</a>
+    @endif
   </article>
   @endif
 
@@ -295,6 +297,9 @@ body{
         <span class="proj-tag">{{ $t }}</span>
       @endforeach
     </div>
+    @if($p->repo_url || $p->live_url)
+      <a href="{{ $p->live_url ?: $p->repo_url }}" class="proj-link" @if(str_starts_with($p->live_url ?: $p->repo_url, 'http')) target="_blank" rel="noopener" @endif>查看项目 →</a>
+    @endif
   </article>
   @endforeach
 

@@ -28,6 +28,12 @@ class ProjectForm
                 TagsInput::make('tags')
                     ->helperText('输入技术栈后回车添加，如：Laravel、MySQL')
                     ->columnSpanFull(),
+                TextInput::make('live_url')
+                    ->url()
+                    ->helperText('在线演示地址（选填）'),
+                TextInput::make('repo_url')
+                    ->url()
+                    ->helperText('源码仓库地址（选填）'),
                 TextInput::make('sort_order')
                     ->required()
                     ->numeric()
