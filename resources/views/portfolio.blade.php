@@ -73,18 +73,14 @@ body{
 
 :focus-visible{outline:2px solid var(--focus);outline-offset:3px}
 
-/* visible scroll progress — solid accent, no gradient blob */
-.scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent);z-index:60;transition:width 80ms linear}
-
 /* ── N5 Floating pill nav ── */
 .nav-pill{
   position:fixed;inset:var(--space-md) auto auto 50%;transform:translateX(-50%);
   display:inline-flex;align-items:center;gap:var(--space-lg);
   padding:0.5rem 0.75rem 0.5rem 1.25rem;
-  background:color-mix(in oklch,var(--paper) 78%,transparent);
-  backdrop-filter:blur(14px) saturate(120%);
+  background:var(--surface);
   border:1px solid var(--line);border-radius:999px;
-  box-shadow:0 8px 24px -12px oklch(0% 0 0 / 0.18);
+  box-shadow:var(--shadow-whisper);
   z-index:40;max-width:min(92vw,720px);
 }
 .nav-pill .wordmark{font-family:var(--font-mono);font-weight:600;font-size:0.95rem;letter-spacing:-0.01em;color:var(--ink);text-decoration:none}
@@ -96,7 +92,7 @@ body{
   border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;
   transition:border-color var(--dur-short) var(--ease-out),transform var(--dur-short) var(--ease-out);
 }
-.theme-toggle:hover{border-color:var(--accent);transform:rotate(15deg) scale(1.05)}
+.theme-toggle:hover{border-color:var(--accent)}
 
 /* ── Hero (left-biased, fixed height, not full viewport) ── */
 .hero{min-height:76vh;display:flex;align-items:center;padding:var(--space-3xl) clamp(1.5rem,5vw,4rem) var(--space-2xl)}
@@ -213,7 +209,6 @@ body{
 </style>
 </head>
 <body>
-<div class="scroll-progress" id="progress"></div>
 
 <nav class="nav-pill" aria-label="Primary">
   <a href="#top" class="wordmark">{{ $name }}</a>
@@ -353,7 +348,7 @@ body{
   <p class="foot-stmt__line">把想法写成能跑起来的系统。</p>
   <div class="foot-stmt__meta">
     <span class="wordmark">{{ $name }}</span>
-    <span class="muted">© {{ date('Y') }} · 用心编写</span>
+    <span class="muted">© {{ date('Y') }} · Built with Laravel 13</span>
   </div>
 </footer>
 
@@ -371,13 +366,6 @@ body{
     root.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
   });
-  var bar = document.getElementById('progress');
-  function onScroll(){
-    var h = document.documentElement.scrollHeight - window.innerHeight;
-    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
-  }
-  window.addEventListener('scroll', onScroll, {passive:true});
-  onScroll();
 })();
 </script>
 </body>

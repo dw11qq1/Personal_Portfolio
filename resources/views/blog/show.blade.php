@@ -43,7 +43,7 @@
 html{scroll-behavior:smooth;overflow-x:clip}
 body{font-family:var(--font-body);background-color:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;transition:background-color 420ms var(--ease-out),color 420ms var(--ease-out)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.nav-pill{position:fixed;inset:1rem auto auto 50%;transform:translateX(-50%);display:inline-flex;align-items:center;gap:1.5rem;padding:0.5rem 0.75rem 0.5rem 1.25rem;background:color-mix(in oklch,var(--paper) 78%,transparent);backdrop-filter:blur(14px) saturate(120%);border:1px solid var(--line);border-radius:999px;box-shadow:0 8px 24px -12px oklch(0% 0 0 / 0.18);z-index:40;max-width:min(92vw,720px)}
+.nav-pill{position:fixed;inset:1rem auto auto 50%;transform:translateX(-50%);display:inline-flex;align-items:center;gap:1.5rem;padding:0.5rem 0.75rem 0.5rem 1.25rem;background:var(--surface);border:1px solid var(--line);border-radius:999px;box-shadow:0 1px 2px oklch(20% 0.02 200 / 0.05);z-index:40;max-width:min(92vw,720px)}
 .nav-pill .wordmark{font-family:var(--font-mono);font-weight:600;font-size:0.95rem;letter-spacing:-0.01em;color:var(--ink);text-decoration:none}
 .nav-pill__links{display:flex;gap:1rem;list-style:none}
 .nav-pill__links a{color:var(--ink-2);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color var(--dur-short) var(--ease-out)}
@@ -67,7 +67,7 @@ body{font-family:var(--font-body);background-color:var(--paper);color:var(--ink)
 .prose li::marker{color:var(--accent)}
 .prose blockquote{border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 0.5rem 0.5rem 0;padding:var(--space-md) var(--space-lg);color:var(--ink);margin:var(--space-lg) 0;font-style:normal}
 .prose code{font-family:var(--font-mono);font-size:0.85em;background:var(--accent-soft);color:var(--ink);border-radius:0.4rem;padding:0.15em 0.5em}
-.prose pre{background:oklch(20% 0.02 200);color:oklch(90% 0.01 200);border-radius:0.75rem;padding:var(--space-md) var(--space-lg);overflow-x:auto;margin:var(--space-lg) 0;font-size:0.9rem;line-height:1.7;box-shadow:0 8px 24px -12px oklch(0% 0 0 / 0.25)}
+.prose pre{background:oklch(20% 0.02 200);color:oklch(90% 0.01 200);border-radius:0.75rem;padding:var(--space-md) var(--space-lg);overflow-x:auto;margin:var(--space-lg) 0;font-size:0.9rem;line-height:1.7}
 .prose pre code{background:none;color:inherit;padding:0;font-size:inherit}
 .prose hr{border:none;border-top:1px solid var(--line);margin:var(--space-xl) 0}
 .prose img{max-width:100%;border-radius:0.75rem;border:1px solid var(--line);margin:var(--space-lg) 0}

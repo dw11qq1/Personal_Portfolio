@@ -42,14 +42,14 @@
 html{scroll-behavior:smooth;overflow-x:clip}
 body{font-family:var(--font-body);background-color:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;transition:background-color 420ms var(--ease-out),color 420ms var(--ease-out)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.nav-pill{position:fixed;inset:1rem auto auto 50%;transform:translateX(-50%);display:inline-flex;align-items:center;gap:1.5rem;padding:0.5rem 0.75rem 0.5rem 1.25rem;background:color-mix(in oklch,var(--paper) 78%,transparent);backdrop-filter:blur(14px) saturate(120%);border:1px solid var(--line);border-radius:999px;box-shadow:0 8px 24px -12px oklch(0% 0 0 / 0.18);z-index:40;max-width:min(92vw,720px)}
+.nav-pill{position:fixed;inset:1rem auto auto 50%;transform:translateX(-50%);display:inline-flex;align-items:center;gap:1.5rem;padding:0.5rem 0.75rem 0.5rem 1.25rem;background:var(--surface);border:1px solid var(--line);border-radius:999px;box-shadow:0 1px 2px oklch(20% 0.02 200 / 0.05);z-index:40;max-width:min(92vw,720px)}
 .nav-pill .wordmark{font-family:var(--font-mono);font-weight:600;font-size:0.95rem;letter-spacing:-0.01em;color:var(--ink);text-decoration:none}
 .nav-pill__links{display:flex;gap:1rem;list-style:none}
 .nav-pill__links a{color:var(--ink-2);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color var(--dur-short) var(--ease-out)}
 .nav-pill__links a:hover{color:var(--accent)}
 .nav-pill__links a[aria-current="page"]{color:var(--accent)}
 .theme-toggle{width:36px;height:36px;display:grid;place-items:center;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;transition:border-color var(--dur-short) var(--ease-out),transform var(--dur-short) var(--ease-out)}
-.theme-toggle:hover{border-color:var(--accent);transform:rotate(15deg) scale(1.05)}
+.theme-toggle:hover{border-color:var(--accent)}
 .blog-head{max-width:820px;margin:0 auto;padding:calc(var(--space-3xl) + 3rem) clamp(1.5rem,5vw,4rem) var(--space-xl)}
 .blog-role{font-family:var(--font-mono);font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--space-md)}
 .blog-title{font-family:var(--font-serif);font-weight:600;font-size:clamp(2.25rem,6vw,4rem);line-height:1;letter-spacing:-0.02em}
