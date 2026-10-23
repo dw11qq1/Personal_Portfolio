@@ -29,6 +29,14 @@ class ContentSeeder extends Seeder
                 'repo_url' => null,
                 'live_url' => null,
             ],
+            [
+                'name' => '电商商城系统',
+                'sort_order' => 3,
+                'tags' => ['Java', 'Spring Boot', 'MySQL', '前后端分离'],
+                'description' => '从零设计开发的全栈电商系统：实现商品浏览与搜索、购物车、订单状态流转、支付对接、后台管理五大核心模块，前后端分离架构。跨出 PHP 舒适区的一次完整实践——从建库、写接口到联调上线，验证后端能力的可迁移性。',
+                'repo_url' => null,
+                'live_url' => null,
+            ],
         ];
 
         foreach ($projects as $project) {
