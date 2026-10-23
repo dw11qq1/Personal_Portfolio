@@ -81,8 +81,11 @@ a{color:inherit}
 
 .bottom-split{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
 .bottom-split .half:first-child{background:var(--ink);color:var(--bg)}
+.bottom-split .half:first-child .contact-k{font-family:var(--font-mono);font-size:0.78rem;color:var(--accent);margin-bottom:0.9rem}
 .bottom-split .half:first-child h2{font-family:var(--font-display);font-weight:700;font-size:1.5rem}
 .bottom-split .half:first-child p{margin-top:0.75rem;color:var(--ink-3);font-size:0.92rem}
+.chip--invert{border-color:var(--bg);color:var(--bg);margin-top:1.5rem}
+.chip--invert:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .bottom-split .half:last-child ul{list-style:none;font-family:var(--font-mono);font-size:0.9rem;width:100%}
 .bottom-split .half:last-child li{padding:0.7rem 0;border-bottom:1px dashed var(--line)}
 .bottom-split .half:last-child li:last-child{border-bottom:none}
@@ -202,8 +205,10 @@ footer .muted{font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-3)}
 
   <section class="bottom-split" id="contact">
     <div class="half">
+      <p class="contact-k">Contact · 联系</p>
       <h2>有项目想聊聊？</h2>
-      <p>后端开发、Laravel 项目、接口设计与部署运维，欢迎邮件或 GitHub 联系。</p>
+      <p>后端开发、Laravel 项目、接口设计与部署运维，欢迎随时来信。</p>
+      <a class="chip chip--invert" href="mailto:3023207113@qq.com">发邮件聊聊 →</a>
     </div>
     <div class="half">
       <ul>
