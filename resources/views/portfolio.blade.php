@@ -131,6 +131,7 @@ body{
 /* small accent square beside a heading — the only decorative accent use */
 .cell-kicker{display:flex;align-items:center;gap:0.6rem;margin-bottom:var(--space-md)}
 .cell-kicker::before{content:"";width:10px;height:10px;border-radius:2px;background:var(--accent);flex-shrink:0}
+.cell-index{margin-left:auto;font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.08em;color:var(--ink-3)}
 .cell-title{font-family:var(--font-display);font-size:1.5rem;font-weight:700;letter-spacing:-0.02em;color:var(--ink)}
 .cell-lead{color:var(--ink-2);margin-top:var(--space-sm);max-width:46ch}
 
@@ -174,6 +175,8 @@ body{
 .contact-item svg{width:20px;height:20px;color:var(--accent);flex-shrink:0;margin-top:2px}
 .contact-item .l{font-family:var(--font-mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-3)}
 .contact-item .v{font-size:0.9rem;color:var(--ink);font-weight:500}
+.contact-item .v a{color:inherit;text-decoration:none;transition:color var(--dur-short) var(--ease-out)}
+.contact-item .v a:hover{color:var(--accent)}
 .contact-links{display:flex;flex-wrap:wrap;gap:0.35rem 0.9rem}
 .contact-links a{color:var(--ink);font-weight:600;text-decoration:none;position:relative}
 .contact-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--accent);transition:width var(--dur-short) var(--ease-out)}
@@ -272,7 +275,7 @@ body{
   @endphp
   @if($feature)
   <article class="cell cell-feature span-2x2" style="--i:2">
-    <div class="cell-kicker"><h2 class="cell-title">精选作品</h2></div>
+    <div class="cell-kicker"><h2 class="cell-title">精选作品</h2><span class="cell-index">P.01</span></div>
     @if($feature->cover_image)
       <img class="proj-cover" src="{{ asset('storage/'.$feature->cover_image) }}" alt="{{ $feature->name }}">
     @endif
@@ -292,7 +295,7 @@ body{
   <!-- Remaining projects -->
   @foreach($rest as $p)
   <article class="cell cell-proj span-2x1" style="--i:{{ $loop->index + 3 }}">
-    <div class="proj-name">{{ $p->name }}</div>
+    <div class="cell-kicker"><h2 class="cell-title">{{ $p->name }}</h2><span class="cell-index">P.0{{ $loop->iteration + 1 }}</span></div>
     <p class="proj-desc">{{ $p->description }}</p>
     <div class="proj-tags">
       @foreach((array)$p->tags as $t)
@@ -328,7 +331,7 @@ body{
     <div class="contact-grid">
       <div class="contact-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <div><div class="l">邮箱</div><div class="v">GitHub 私信联系</div></div>
+        <div><div class="l">邮箱</div><div class="v"><a class="contact-mail" href="mailto:3023207113@qq.com">3023207113@qq.com</a></div></div>
       </div>
       <div class="contact-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -336,11 +339,7 @@ body{
       </div>
       <div class="contact-item">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        <div><div class="l">代码仓库</div><div class="contact-links"><a href="https://github.com" target="_blank" rel="noopener">GitHub</a><a href="https://gitee.com" target="_blank" rel="noopener">Gitee</a><a href="https://juejin.cn" target="_blank" rel="noopener">掘金</a></div></div>
-      </div>
-      <div class="contact-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-        <div><div class="l">微信</div><div class="v">扫码添加好友</div></div>
+        <div><div class="l">代码仓库</div><div class="contact-links"><a href="https://github.com/dw11qq1" target="_blank" rel="noopener">GitHub @dw11qq1</a></div></div>
       </div>
     </div>
   </article>
