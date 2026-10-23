@@ -127,6 +127,7 @@ body{
 .span-2x2{grid-column:span 2;grid-row:span 2}
 .span-2x1{grid-column:span 2}
 .span-1x2{grid-row:span 2}
+.span-4x1{grid-column:span 4}
 
 /* small accent square beside a heading — the only decorative accent use */
 .cell-kicker{display:flex;align-items:center;gap:0.6rem;margin-bottom:var(--space-md)}
@@ -170,7 +171,7 @@ body{
 .exp-desc{color:var(--ink-2);font-size:0.85rem;margin-top:var(--space-xs)}
 
 /* Contact — mini grid inside a tile */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-md);margin-top:var(--space-md)}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-md) var(--space-lg);margin-top:var(--space-md)}
 .contact-item{display:flex;gap:0.75rem;align-items:flex-start}
 .contact-item svg{width:20px;height:20px;color:var(--accent);flex-shrink:0;margin-top:2px}
 .contact-item .l{font-family:var(--font-mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-3)}
@@ -198,10 +199,13 @@ body{
   .bento{grid-template-columns:repeat(2,1fr)}
   .span-2x2{grid-column:span 2;grid-row:span 2}
   .span-2x1{grid-column:span 2}
+  .span-4x1{grid-column:span 2}
+  .contact-grid{grid-template-columns:1fr 1fr}
 }
 @media (max-width:560px){
   .bento{grid-template-columns:1fr}
   .span-2x2,.span-2x1{grid-column:span 1;grid-row:auto}
+  .span-4x1{grid-column:span 1}
   .nav-pill{gap:var(--space-sm);padding:0.5rem 0.6rem 0.5rem 1rem}
   .nav-pill__links{display:none}
   .contact-grid{grid-template-columns:1fr}
@@ -326,7 +330,7 @@ body{
   @endif
 
   <!-- Contact -->
-  <article class="cell cell-contact span-2x1" id="contact" style="--i:{{ $projects->count() + 3 }}">
+  <article class="cell cell-contact span-4x1" id="contact" style="--i:{{ $projects->count() + 3 }}">
     <div class="cell-kicker"><h2 class="cell-title">联系</h2></div>
     <div class="contact-grid">
       <div class="contact-item">
