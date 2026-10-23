@@ -212,7 +212,9 @@ body{
   <a href="#top" class="wordmark">{{ $name }}</a>
   <ul class="nav-pill__links">
     <li><a href="#work">作品</a></li>
+    @if($experiences->isNotEmpty())
     <li><a href="#exp">经历</a></li>
+    @endif
     <li><a href="/blog">博客</a></li>
     <li><a href="#contact">联系</a></li>
   </ul>
@@ -304,6 +306,7 @@ body{
   @endforeach
 
   <!-- Experience -->
+  @if($experiences->isNotEmpty())
   <article class="cell cell-exp span-2x2" id="exp" style="--i:{{ $projects->count() + 2 }}">
     <div class="cell-kicker"><h2 class="cell-title">工作历程</h2></div>
     <div class="exp-list">
@@ -317,6 +320,7 @@ body{
       @endforeach
     </div>
   </article>
+  @endif
 
   <!-- Contact -->
   <article class="cell cell-contact span-2x1" id="contact" style="--i:{{ $projects->count() + 3 }}">
